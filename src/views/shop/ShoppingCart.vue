@@ -1,40 +1,15 @@
 <template>
     <yd-layout>
 
-        <yd-navbar slot="navbar" title="InfiniteScroll">
-            <router-link to="/list" slot="left">
-                <yd-navbar-back-icon></yd-navbar-back-icon>
-            </router-link>
-        </yd-navbar>
 
 
 
         <yd-scrolltab>
-            <yd-scrolltab-panel label="冰箱" icon="demo-icons-category2" active>
-                <yd-infinitescroll :callback="loadList" ref="lsdemo">
-                    <yd-list theme="4" slot="list">
-                        <yd-list-item v-for="item in list">
-                            <img slot="img" :src="item.img">
-                            <span slot="title">{{item.title}}</span>
-                            <yd-list-other slot="other">
-                                <div>
-                                    <span class="list-price"><em>¥</em>{{item.marketprice}}</span>
-                                    <span class="list-del-price">¥{{item.productprice}}</span>
-                                </div>
-                                <div>content</div>
-                            </yd-list-other>
-                        </yd-list-item>
-                    </yd-list>
-                    <!-- 数据全部加载完毕显示 -->
-                    <span slot="doneTip">啦啦啦，啦啦啦，没有数据啦~~</span>
-                </yd-infinitescroll>
+            <yd-scrolltab-panel label="test2" icon="demo-icons-category2" active>
+                <div style="height: 350px;background-color: blue;"></div>
             </yd-scrolltab-panel>
 
-
-
-
-
-            <yd-scrolltab-panel label="冰箱" icon="demo-icons-category2" active>
+            <yd-scrolltab-panel label="冰箱" icon="demo-icons-category2" >
                 <div style="height: 350px;background-color: blue;"></div>
             </yd-scrolltab-panel>
 
@@ -51,6 +26,7 @@
 </template>
 
 <script type="text/babel">
+
     export default {
         data() {
             return {
@@ -107,6 +83,9 @@
                     }
                 ]
             }
+        },
+        mounted(){
+            console.log(this.$router.currentRoute.name);
         },
         methods: {
             loadList() {
