@@ -2,113 +2,105 @@
     <yd-layout>
 
 
+        <yd-flexbox style="height: 2rem;">
+            <yd-flexbox-item>
+                <yd-icon name="order"></yd-icon>
+            </yd-flexbox-item>
+        </yd-flexbox>
 
 
-        <yd-scrolltab>
-            <yd-scrolltab-panel label="test3" icon="demo-icons-category2" active>
-                <div style="height: 350px;background-color: #ffdd51;"></div>
-            </yd-scrolltab-panel>
-
-            <yd-scrolltab-panel label="冰箱" icon="demo-icons-category2" >
-                <div style="height: 350px;background-color: blue;"></div>
-            </yd-scrolltab-panel>
-
-            <yd-scrolltab-panel label="洗衣机" icon="demo-icons-category3">
-                <div style="height: 350px;background-color: yellow;"></div>
-            </yd-scrolltab-panel>
-
-            <!-- ... -->
-        </yd-scrolltab>
+        <yd-flexbox>
+            <yd-flexbox-item>
+                待处理
+            </yd-flexbox-item>
+            <yd-flexbox-item>
+                处理中
+            </yd-flexbox-item>
+            <yd-flexbox-item>
+                已完成
+            </yd-flexbox-item>
+        </yd-flexbox>
 
 
-        <yd-backtop></yd-backtop>
+        <yd-flexbox style="margin-top: .5rem;margin-bottom: .5rem">
+            <yd-flexbox-item>
+                <hr>
+            </yd-flexbox-item>
+        </yd-flexbox>
+
+
+        <div style="border-radius:0.15rem;border: 0.02rem solid #000;margin: 0.25rem 0.5rem">
+            <yd-flexbox style="height: 1.2rem">
+                <div>
+                    <yd-icon name="shield-outline"></yd-icon>
+
+                </div>
+                <yd-flexbox-item>
+                    订单号:<i style="color: blue">123456789</i>
+                    <br>
+
+                    <i style="font-size: .2rem"> 2018-12-12 12:12:12</i>
+                </yd-flexbox-item>
+                <yd-flexbox-item>
+                    <i style="color: red">￥123.00</i>
+                </yd-flexbox-item>
+            </yd-flexbox>
+        </div>
+        <div style="border-radius:0.15rem;border: 0.02rem solid #000;margin: 0.25rem 0.5rem">
+            <yd-flexbox style="height: 1.2rem">
+                <div>
+                    <yd-icon name="shield-outline"></yd-icon>
+
+                </div>
+                <yd-flexbox-item>
+                    订单号:<i style="color: blue">123456789</i>
+                    <br>
+
+                    <i style="font-size: .2rem"> 2018-12-12 12:12:12</i>
+                </yd-flexbox-item>
+                <yd-flexbox-item>
+                    <i style="color: red">￥123.00</i>
+                </yd-flexbox-item>
+            </yd-flexbox>
+        </div>
+        <div style="border-radius:0.15rem;border: 0.02rem solid #000;margin: 0.25rem 0.5rem">
+            <yd-flexbox style="height: 1.2rem">
+                <div>
+                    <yd-icon name="shield-outline"></yd-icon>
+
+                </div>
+                <yd-flexbox-item>
+                    订单号:<i style="color: blue">123456789</i>
+                    <br>
+
+                    <i style="font-size: .2rem"> 2018-12-12 12:12:12</i>
+                </yd-flexbox-item>
+                <yd-flexbox-item>
+                    <i style="color: red">￥123.00</i>
+                </yd-flexbox-item>
+            </yd-flexbox>
+        </div>
+
+
     </yd-layout>
 </template>
 
-<script type="text/babel">
+<script>
     export default {
         data() {
-            return {
-                page: 1,
-                pageSize: 10,
-                list: [
-                    {
-                        img: "http://img1.shikee.com/try/2016/06/23/14381920926024616259.jpg",
-                        title: "标题标题标题标题标题",
-                        marketprice: 56.23,
-                        productprice: 89.36
-                    },
-                    {
-                        img: "http://img1.shikee.com/try/2016/06/21/10172020923917672923.jpg",
-                        title: "骆驼男装2016夏装男士短袖T恤 圆领衣服 印花男装体恤 半袖打底衫",
-                        marketprice: 56.23,
-                        productprice: 89.36
-                    },
-                    {
-                        img: "http://img1.shikee.com/try/2016/06/23/15395220917905380014.jpg",
-                        title: "条纹短袖T恤男士韩版衣服大码潮流男装夏季圆领体恤2016新款半袖",
-                        marketprice: 56.23,
-                        productprice: 89.36
-                    },
-                    {
-                        img: "http://img1.shikee.com/try/2016/06/25/14244120933639105658.jpg",
-                        title: "夏季青少年衣服男生潮牌t恤 男士 夏秋学生 日系棉短袖半袖男小衫",
-                        marketprice: 56.23,
-                        productprice: 89.36
-                    },
-                    {
-                        img: "http://img1.shikee.com/try/2016/06/26/12365720933909085511.jpg",
-                        title: "2016夏装新款时尚潮流短袖T恤男纯棉V领日系青少年韩版夏季上衣服",
-                        marketprice: 56.23,
-                        productprice: 89.36
-                    },
-                    {
-                        img: "http://img1.shikee.com/try/2016/06/19/09430120929215230041.jpg",
-                        title: "男装衣服男夏t恤 男士短袖t恤圆领夏季潮牌宽松原宿风半截袖男",
-                        marketprice: 56.23,
-                        productprice: 89.36
-                    },
-                    {
-                        img: "http://img1.shikee.com/try/2016/06/03/12173920932544716516.jpg",
-                        title: "superman短袖t恤日潮牌男士日韩夏装水洗做旧修身个性短袖t恤衣服",
-                        marketprice: 56.23,
-                        productprice: 89.36
-                    },
-                    {
-                        img: "http://img1.shikee.com/try/2016/09/28/14575020926479478831.jpg",
-                        title: "买一送二新款青少年潮男大码T恤 学生字半袖修身款衣服半截袖青年",
-                        marketprice: 56.23,
-                        productprice: 89.36
-                    }
-                ]
-            }
-        },
-        methods: {
-            loadList() {
-                this.$http.jsonp('http://list.ydui.org/getdata.php?type=backposition', {
-                    params: {
-                        page: this.page,
-                        pagesize: this.pageSize
-                    }
-                }).then(function (response) {
-                    setTimeout(() => { // 请求太快了，延迟一下方便看效果！
-                        const _list = response.body;
-
-                        this.list = [...this.list, ..._list];
-
-                        if (_list.length < this.pageSize || this.page >= 4) {
-                            // 所有数据加载完毕
-                            this.$refs.lsdemo.$emit('ydui.infinitescroll.loadedDone');
-                            return;
-                        }
-
-                        // 单次请求数据完毕
-                        this.$refs.lsdemo.$emit('ydui.infinitescroll.finishLoad');
-
-                        this.page++;
-                    }, 1000);
-                });
-            }
+            return {}
         }
     }
 </script>
+
+<style>
+
+    .yd-scrollview:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 0rem;
+    }
+
+</style>
+

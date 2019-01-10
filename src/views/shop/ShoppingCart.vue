@@ -1,40 +1,142 @@
 <template>
-    <yd-layout>
+    <yd-layout v-if="isShopCartEmpty">
+        <yd-flexbox style="height: 2rem;">
+            <yd-flexbox-item >
+                <yd-icon name="shopcart"></yd-icon>
+            </yd-flexbox-item>
+        </yd-flexbox>
 
 
-
-        <yd-list theme="4">
-            <yd-list-item v-for="item, key in list" :key="key">
-                <img slot="img" :src="item.img">
-                <span slot="title">{{item.title}}</span>
-                <yd-list-other slot="other">
-                    <div>
-                        <span class="list-price"><em>¥</em>{{item.price}}</span>
-                        <span class="list-del-price">¥{{item.w_price}}</span>
-                    </div>
-                    <div>content</div>
-                </yd-list-other>
-            </yd-list-item>
-        </yd-list>
+        <yd-flexbox >
+            <yd-flexbox-item >
+                总金额￥100.00
+            </yd-flexbox-item>
+        </yd-flexbox>
 
 
-        <yd-backtop></yd-backtop>
+        <yd-flexbox style="margin-top: .5rem;margin-bottom: .5rem">
+            <yd-flexbox-item  >
+                <hr>
+            </yd-flexbox-item>
+        </yd-flexbox>
+
+
+        <yd-flexbox >
+            <yd-flexbox-item >
+               娃娃菜
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+               ￥100.00
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+               数量
+            </yd-flexbox-item>
+        </yd-flexbox>
+        <yd-flexbox >
+            <yd-flexbox-item >
+               娃娃菜
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+               ￥100.00
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+               数量
+            </yd-flexbox-item>
+        </yd-flexbox>
+        <yd-flexbox >
+            <yd-flexbox-item >
+               娃娃菜
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+               ￥100.00
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+               数量
+            </yd-flexbox-item>
+        </yd-flexbox>
+        <yd-flexbox >
+            <yd-flexbox-item >
+               娃娃菜
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+               ￥100.00
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+               数量
+            </yd-flexbox-item>
+        </yd-flexbox>
+        <yd-flexbox >
+            <yd-flexbox-item >
+               娃娃菜
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+               ￥100.00
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+               数量
+            </yd-flexbox-item>
+        </yd-flexbox>
+        <yd-flexbox >
+            <yd-flexbox-item >
+               娃娃菜
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+               ￥100.00
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+               数量
+            </yd-flexbox-item>
+        </yd-flexbox>
+
+
+        <yd-flexbox style="margin-top: .5rem;margin-bottom: .5rem">
+            <yd-flexbox-item  >
+                <hr>
+            </yd-flexbox-item>
+        </yd-flexbox>
+
+        <yd-flexbox>
+            <yd-flexbox-item >
+                <yd-button size="small" type="primary">立即购买</yd-button>
+            </yd-flexbox-item>
+        </yd-flexbox>
+
     </yd-layout>
+
+    <!--购物车什么都没有-->
+    <yd-layout v-else>
+        <yd-flexbox style="height: 6rem;">
+            <yd-flexbox-item >
+                <yd-icon name="shopcart-outline"></yd-icon>
+            </yd-flexbox-item>
+        </yd-flexbox>
+
+        <yd-flexbox >
+            <yd-flexbox-item  >
+                空空如也~
+            </yd-flexbox-item>
+        </yd-flexbox>
+    </yd-layout>
+
 </template>
 
 <script>
     export default {
         data() {
             return {
-                list: [
-                    {img: "//img1.shikee.com/try/2016/06/23/14381920926024616259.jpg", title: "标题111标题标题标题标题", price: 156.23, w_price: 89.36},
-                    {img: "//img1.shikee.com/try/2016/06/21/10172020923917672923.jpg", title: "标题222标题标题标题标题", price: 256.23, w_price: 89.36},
-                    {img: "//img1.shikee.com/try/2016/06/23/15395220917905380014.jpg", title: "标题333标题标题标题标题", price: 356.23, w_price: 89.36},
-                    {img: "//img1.shikee.com/try/2016/06/25/14244120933639105658.jpg", title: "标题444标题标题标题标题", price: 456.23, w_price: 89.36},
-                    {img: "//img1.shikee.com/try/2016/06/26/12365720933909085511.jpg", title: "标题555标题标题标题标题", price: 556.23, w_price: 89.36},
-                    {img: "//img1.shikee.com/try/2016/06/19/09430120929215230041.jpg", title: "标题666标题标题标题标题", price: 656.23, w_price: 89.36}
-                ]
+                isShopCartEmpty:true,
+
             }
         }
     }
 </script>
+<style>
+
+    .yd-scrollview:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 0rem;
+    }
+
+</style>
