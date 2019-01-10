@@ -1,8 +1,4 @@
 <template>
-    <yd-layout>
-
-
-
 
         <yd-scrolltab>
             <yd-scrolltab-panel label="空调" icon="demo-icons-category1">
@@ -56,11 +52,6 @@
             <!-- ... -->
         </yd-scrolltab>
 
-
-
-
-
-    </yd-layout>
 </template>
 <script>
     export default {
