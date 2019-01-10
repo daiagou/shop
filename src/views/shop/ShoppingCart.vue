@@ -1,4 +1,5 @@
 <template>
+<div>
     <yd-layout v-if="isShopCartEmpty">
         <yd-flexbox style="height: 2rem;">
             <yd-flexbox-item >
@@ -23,68 +24,68 @@
 
         <yd-flexbox >
             <yd-flexbox-item >
-               娃娃菜
+                娃娃菜
             </yd-flexbox-item>
             <yd-flexbox-item >
-               ￥100.00
+                ￥100.00
             </yd-flexbox-item>
             <yd-flexbox-item >
-               数量
-            </yd-flexbox-item>
-        </yd-flexbox>
-        <yd-flexbox >
-            <yd-flexbox-item >
-               娃娃菜
-            </yd-flexbox-item>
-            <yd-flexbox-item >
-               ￥100.00
-            </yd-flexbox-item>
-            <yd-flexbox-item >
-               数量
+                数量
             </yd-flexbox-item>
         </yd-flexbox>
         <yd-flexbox >
             <yd-flexbox-item >
-               娃娃菜
+                娃娃菜
             </yd-flexbox-item>
             <yd-flexbox-item >
-               ￥100.00
+                ￥100.00
             </yd-flexbox-item>
             <yd-flexbox-item >
-               数量
-            </yd-flexbox-item>
-        </yd-flexbox>
-        <yd-flexbox >
-            <yd-flexbox-item >
-               娃娃菜
-            </yd-flexbox-item>
-            <yd-flexbox-item >
-               ￥100.00
-            </yd-flexbox-item>
-            <yd-flexbox-item >
-               数量
+                数量
             </yd-flexbox-item>
         </yd-flexbox>
         <yd-flexbox >
             <yd-flexbox-item >
-               娃娃菜
+                娃娃菜
             </yd-flexbox-item>
             <yd-flexbox-item >
-               ￥100.00
+                ￥100.00
             </yd-flexbox-item>
             <yd-flexbox-item >
-               数量
+                数量
             </yd-flexbox-item>
         </yd-flexbox>
         <yd-flexbox >
             <yd-flexbox-item >
-               娃娃菜
+                娃娃菜
             </yd-flexbox-item>
             <yd-flexbox-item >
-               ￥100.00
+                ￥100.00
             </yd-flexbox-item>
             <yd-flexbox-item >
-               数量
+                数量
+            </yd-flexbox-item>
+        </yd-flexbox>
+        <yd-flexbox >
+            <yd-flexbox-item >
+                娃娃菜
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+                ￥100.00
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+                数量
+            </yd-flexbox-item>
+        </yd-flexbox>
+        <yd-flexbox >
+            <yd-flexbox-item >
+                娃娃菜
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+                ￥100.00
+            </yd-flexbox-item>
+            <yd-flexbox-item >
+                数量
             </yd-flexbox-item>
         </yd-flexbox>
 
@@ -118,6 +119,8 @@
         </yd-flexbox>
     </yd-layout>
 
+
+</div>
 </template>
 
 <script>
@@ -130,13 +133,3 @@
         }
     }
 </script>
-<style>
-
-    .yd-scrollview:after {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 0rem;
-    }
-
-</style>
