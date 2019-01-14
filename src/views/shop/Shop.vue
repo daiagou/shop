@@ -54,7 +54,7 @@
 
 
 
-            <div style="position: fixed;bottom: 0.3rem;left: 48%;width: 1rem;height: 1rem;z-index: 1">
+            <div style="position: fixed;bottom: 0.3rem;left: 48%;width: 1rem;height: 1rem;z-index: 1" @click="$router.push('shoppingCart')">
                 <yd-badge type="danger">3</yd-badge>
             </div>
 
