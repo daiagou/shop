@@ -6,11 +6,11 @@
                     <yd-list-item v-for="item, key in list" :key="key">
                         <img slot="img" :src="item.img">
                         <!--<span slot="title">{{item.title}}</span>-->
-                        <yd-list-other slot="other" style=" touch-action: none;">
-                            <div style="text-align: center;width: 100%">
+                        <yd-list-other slot="other" style=" touch-action: none;" >
+                            <div style="text-align: center;width: 100%" >
                                 <p >{{item.title}}</p>
                                 <p class="list-price"><em>¥</em>{{item.price}}</p>
-                                <yd-spinner height="0.5rem" width="0.5rem" button-style="circle" min="0" :val="item.id" v-model="item.num" :callback="test"></yd-spinner>
+                                <yd-spinner height="0.5rem" width="0.5rem" button-style="circle" min="0" :val="item.id" v-model="item.num" :callback="test" @click="animation"></yd-spinner>
                             </div>
                         </yd-list-other>
                         <div></div>
@@ -54,8 +54,8 @@
 
 
 
-            <div style="position: fixed;bottom: 0.3rem;left: 49%;width: 1rem;height: 1rem;z-index: 1" @click="$router.push('shoppingCart')">
-                <yd-badge type="danger">3</yd-badge>
+            <div  style="position: fixed;bottom: 0.3rem;left: 49%;width: 1rem;height: 1rem;z-index: 1" @click="$router.push('shoppingCart')">
+                <yd-badge id="badge" type="danger">3</yd-badge>
             </div>
 
 
@@ -69,7 +69,12 @@
 </template>
 <script>
 
-    import $ from "jquery";
+    // let $ = require('jquery')
+    // window.$ = $
+
+
+    import $ from '../../common/js/jquery-vendor';
+    import jqueryFly from '../../common/js/jquery.fly.min';
 
     export default {
         data() {
@@ -86,20 +91,58 @@
 
                 formData:{},
 
+                x:0,
+                y:0,
+
             }
         },
         methods:{
+
+            pagex(e){
+              console.log("e:"+e);
+            },
+
+
             test(id,num){
-                console.log(id);
-                console.log(num);
                 if(num==0){
                     delete this.formData[id];
                 }else{
                     this.formData[id]=num;
                 }
-                console.log(JSON.stringify(this.formData) );
-                console.log($.isEmptyObject(this.formData) );
+                this.animation();
+            },
+            animation(){
+                if(!event){
+                    return;//点击多了会有问题
+                }
+                let thisItem = $(event.currentTarget);
+                let flyer = thisItem.clone().css({"background":"red", "width": "20px", "height": "20px","border-radius": "20px"});
+                let offset = $('#badge').offset();
+                flyer.fly({
+                    start: {
+                        // left: 250,  //开始位置（必填）#fly元素会被设置成position: fixed
+                        // top: 200,  //开始位置（必填）
+                        left:event.targetTouches[0].clientX,  //开始位置（必填）#fly元素会被设置成position: fixed
+                        top:event.targetTouches[0].clientY,  //开始位置（必填）
+                    },
+                    end: {
+                        // left: 200, //结束位置（必填）
+                        // top: 580,  //结束位置（必填）
+                        left: offset.left ,
+                        top: offset.top ,
+                        // width: 100, //结束时高度
+                        // height: 100, //结束时高度
+                        // bottom: 1,
+                    },
+                    autoPlay: true, //是否直接运动,默认true
+                    speed: 1.1, //越大越快，默认1.2
+                    vertex_Rtop: 100, //运动轨迹最高点top值，默认20
+                    onEnd: function () {
+                        flyer.remove();
+                    } //结束回调
+                });
             }
+
         }
     }
 </script>
