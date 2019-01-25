@@ -16,11 +16,10 @@ export const queryGoodsInfosList = params => {
         crossDomain: true
     }).then(res => res);
 };
-
-export const saveOrUpdateAdsChannel = params => {
+export const buy = params => {
     return $.ajax({
         type: 'post',
-        url: `${base}/csb/saveOrUpdateAdsChannel`,
+        url: `${base}/csb/buy`,
         contentType: "application/json;charset=UTF-8",
         data: JSON.stringify(params),
         xhrFields: {

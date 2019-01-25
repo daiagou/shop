@@ -119,7 +119,6 @@
             init() {
                 this.loadTable();
                 this.totalCount=sessionStorage.getItem('totalCount')?sessionStorage.getItem('totalCount'):0;
-
             },
             calcSelectedGoodsCount() {
                 let shopCartData=JSON.parse(sessionStorage.getItem('shopCartData'));
@@ -186,6 +185,7 @@
                 this.totalCount = totalCount;
                 sessionStorage.setItem('totalCount', totalCount.toString());
                 sessionStorage.setItem('shopCartData', JSON.stringify(this.formData));
+                sessionStorage.setItem('listData', JSON.stringify(this.listData));
 
             },
             animation(id,num){
