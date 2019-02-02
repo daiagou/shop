@@ -4,7 +4,7 @@
             <yd-scrolltab-panel :label="key" icon="demo-icons-category1"  v-for="(value, key) in listData">
                 <yd-list theme="4">
                     <yd-list-item v-for="item, key1 in value">
-                        <img slot="img" :src="item.picUrl">
+                        <img slot="img" :src="item.picUrl" @click="showDetailDialog(item)">
                         <!--<span slot="title">{{item.title}}</span>-->
                         <yd-list-other slot="other" style=" touch-action: none;" >
                             <div style="text-align: center;width: 100%" >
@@ -58,6 +58,64 @@
                 <yd-badge id="badge" type="danger" >{{totalCount}}</yd-badge>
             </div>
 
+            <!--<yd-lightbox :num="list.length">-->
+                <!--<yd-lightbox-img v-for="item in list" :src="item.src" :original="item.original"></yd-lightbox-img>-->
+                <!--<yd-lightbox-txt >-->
+                    <!--<h1 slot="top" style="text-align: right">双瞳如小窗 佳景观历历</h1>-->
+                    <!--<div slot="content" style="text-align: right">-->
+                        <!--&lt;!&ndash;<p>相机：灵犀相通，妙不可言。</p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<p>设计：美不胜收，爱不释手。</p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<p>体验：强劲性能，持久动力。</p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<p>mCharge 4.0：上善若水，不止于快。</p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<p>mTouch：指尖轻点，安全随行。</p>&ndash;&gt;-->
+                        <!--aaaaaa<br/>-->
+                        <!--aaaaaa<br/>-->
+                        <!--aaaaaa<br/>-->
+                        <!--aaaaaa<br/>-->
+                        <!--aaaaaa<br/>-->
+                        <!--aaaaaa<br/>-->
+                    <!--</div>-->
+                <!--</yd-lightbox-txt>-->
+            <!--</yd-lightbox>-->
+
+
+
+
+
+
+
+            <!--详细图片对话框-->
+            <yd-popup v-model="detailDialogShow" position="center" width="90%" height="80%">
+                <yd-slider autoplay="3000" @click.native="detailDialogShow=false">
+                    <yd-slider-item v-if="dialogData.detailPicUrl1">
+                        <a @click="detailDialogShow=false">
+                            <img :src="dialogData.detailPicUrl1">
+                        </a>
+                    </yd-slider-item>
+                    <yd-slider-item v-if="dialogData.detailPicUrl2">
+                        <a @click="detailDialogShow=false">
+                            <img :src="dialogData.detailPicUrl2">
+                        </a>
+                    </yd-slider-item>
+                    <yd-slider-item v-if="dialogData.detailPicUrl3">
+                        <a @click="detailDialogShow=false">
+                            <img :src="dialogData.detailPicUrl3">
+                        </a>
+                    </yd-slider-item>
+                    <yd-slider-item v-if="dialogData.detailPicUrl4">
+                        <a @click="detailDialogShow=false">
+                            <img :src="dialogData.detailPicUrl4">
+                        </a>
+                    </yd-slider-item>
+                    <yd-slider-item v-if="dialogData.detailPicUrl5">
+                        <a @click="detailDialogShow=false">
+                            <img :src="dialogData.detailPicUrl5">
+                        </a>
+                    </yd-slider-item>
+                </yd-slider>
+            </yd-popup>
+
+
 
 
         </yd-scrolltab>
@@ -86,28 +144,37 @@
                 totalCount:0,
                 list: [
 
-                    {id:2,img: "//img1.shikee.com/try/2016/06/21/10172020923917672923.jpg", title: "标题222标题", price: 256.23, w_price: 89.36,num:1},
-                    {id:3,img: "//img1.shikee.com/try/2016/06/23/15395220917905380014.jpg", title: "标题333标题", price: 356.23, w_price: 89.36,num:2},
-                    {id:4,img: "//img1.shikee.com/try/2016/06/25/14244120933639105658.jpg", title: "标题444标题", price: 456.23, w_price: 89.36,num:3},
-                    {id:5,img: "//img1.shikee.com/try/2016/06/26/12365720933909085511.jpg", title: "标题555标题", price: 556.23, w_price: 89.36,num:0},
-                    {id:6,img: "//img1.shikee.com/try/2016/06/19/09430120929215230041.jpg", title: "标题666标题", price: 656.23, w_price: 89.36,num:0}
+                    {src: 'http://static.ydcss.com/uploads/lightbox/meizu_s1.jpg', original: 'http://static.ydcss.com/uploads/lightbox/meizu_1.jpg'},
+                    {src: 'http://static.ydcss.com/uploads/lightbox/meizu_s2.jpg', original: 'http://static.ydcss.com/uploads/lightbox/meizu_2.jpg'},
+                    {src: 'http://static.ydcss.com/uploads/lightbox/meizu_s3.jpg', original: 'http://static.ydcss.com/uploads/lightbox/meizu_3.jpg'},
+                    {src: 'http://static.ydcss.com/uploads/lightbox/meizu_s4.jpg', original: 'http://static.ydcss.com/uploads/lightbox/meizu_4.jpg'},
+                    {src: 'http://static.ydcss.com/uploads/lightbox/meizu_s5.jpg', original: 'http://static.ydcss.com/uploads/lightbox/meizu_5.jpg'},
+                    {src: 'http://static.ydcss.com/uploads/lightbox/meizu_s6.jpg', original: 'http://static.ydcss.com/uploads/lightbox/meizu_6.jpg'}
                 ],
 
                 listData:{
-
-
                 },
-
-
                 formData:{},
-
-                x:0,
-                y:0,
+                dialogData:{
+                    id: '',
+                    goodsName: '',
+                    price: '',
+                    picUrl: '',
+                    goodsType: '',
+                    createTime: '',
+                    updateTime: '',
+                    detailPicUrl1: '',
+                    detailPicUrl2: '',
+                    detailPicUrl3: '',
+                    detailPicUrl4: '',
+                    detailPicUrl5: '',
+                },
+                detailDialogShow:false,
 
             }
         },
         mounted() {
-            this.init()
+            this.init();
         },
         // computed:{
         //   totalCountComp:function () {
@@ -163,7 +230,18 @@
                 });
             },
 
-
+            showDetailDialog(item){
+                if(!item.detailPicUrl1&&!item.detailPicUrl2&&!item.detailPicUrl3&&!item.detailPicUrl4&&!item.detailPicUrl5){
+                    this.$dialog.toast({
+                        mes: '暂无明细',
+                        timeout: 1500,
+                        icon: 'error'
+                    });
+                    return;
+                }
+                this.dialogData =item;
+                this.detailDialogShow = true;
+            },
 
             goodsCountChange(id,num){
                 if(!this.formData[id]||this.formData[id]<num){
